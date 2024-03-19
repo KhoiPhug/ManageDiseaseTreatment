@@ -1,0 +1,172 @@
+<form
+    class="mt-4"
+    name="container-form"
+    method="POST"
+    action="/persons/handle-form-action"
+>
+    <div>
+        <h2>Person's profile</h2>
+        <a href="/persons/trash/profile" class="text-decoration-none">Trash ({{deletedCount}})</a>
+        <div class="mt-4 d-flex align-items-center">
+            <div class="form-check">
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="checkbox-all"
+                />
+                <label class="form-check-label" for="checkbox-all">
+                    Select All
+                </label>
+            </div>
+
+            <select
+                class="form-select form-select-sm w-25 select-action"
+                name="action"
+                required
+            >
+                <option value="">-- Action --</option>
+                <option value="delete">Delete</option>
+            </select>
+
+            <button
+                class="btn btn-primary btn-sm btn-check-all-submit disabled"
+                disabled
+            >Action</button>
+        </div>
+    </div>
+
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">#</th>
+                <th scope="col">
+                    Name
+                    {{{sortable "name" _sort}}}
+                </th>
+                <th scope="col">Address
+                    {{{sortable "address" _sort}}}
+                </th>
+                <th scope="col" colspan="2">Job
+                    {{{sortable "job" _sort}}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each persons}}
+                <tr>
+                    <td>
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                name="personIds[]"
+                                value={{this._id}}
+                            />
+                        </div>
+                    </td>
+                    <th scope="row">{{sum @index 1}}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.address}}</td>
+                    <td>{{this.job}}</td>
+                    <td>
+                        <a
+                            href="/persons/{{this._id}}/edit"
+                            class="btn btn-primary"
+                        >Update</a>
+                        <a
+                            href=""
+                            class="btn btn-danger"
+                            data-bs-toggle="modal"
+                            data-bs-target="#delete-person-modal"
+                            data-id={{this._id}}
+                        >Delete</a>
+                    </td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan="5" class="text-center">
+                        No person.
+                        <a
+                            href="/persons/create"
+                            class="text-decoration-none"
+                        >Add person</a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</form>
+
+{{! Delete modal }}
+<div
+    class="modal fade"
+    id="delete-person-modal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete
+                    person ?</h1>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                Are you sure ?
+            </div>
+            <div class="modal-footer">
+                <button
+                    id="btn-delete-person"
+                    type="button"
+                    class="btn btn-danger"
+                >Delete</button>
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{! Hidden form }}
+<form name="delete-person-from" method="POST"></form>
+
+<script src="https:code.jquery.com/jquery-3.6.3.min.js"></script>
+
+<script>
+    const containerForm = $('form[name="container-form"]'); const deleteForm =
+    document.forms["delete-person-from"]; const checkboxAll =
+    $("#checkbox-all"); const personItemCheckbox =
+    $('input[name="personIds[]"]'); const btnCheckAllSubmit =
+    $(".btn-check-all-submit"); const exampleModal =
+    document.getElementById("delete-person-modal"); var personId;
+    exampleModal.addEventListener("show.bs.modal", (event) => { const button =
+    event.relatedTarget; personId = button.getAttribute("data-id"); }); const
+    btmDeletePerson = document.getElementById("btn-delete-person");
+    btmDeletePerson.onclick = function () { deleteForm.action = "/persons/" +
+    personId + "?_method=DELETE"; deleteForm.submit(); };
+    checkboxAll.change(function () { const isCheckedAll =
+    $(this).prop("checked"); personItemCheckbox.prop("checked", isCheckedAll);
+    renderCheckAllSubmitBtn(); }); personItemCheckbox.change(function () { const
+    isCheckedAll = personItemCheckbox.length ===
+    $('input[name="personIds[]"]:checked').length; checkboxAll.prop("checked",
+    isCheckedAll); renderCheckAllSubmitBtn(); });
+    containerForm.on("submit",function (e) { const isSubmittable =
+    !btnCheckAllSubmit.hasClass("disabled"); if (!isSubmittable) {
+    e.preventDefault(); } }); function renderCheckAllSubmitBtn() { const
+    checkCount = $('input[name="personIds[]"]:checked').length; if (checkCount)
+    { btnCheckAllSubmit.removeClass("disabled");
+    btnCheckAllSubmit.attr("disabled",false); } else {
+    btnCheckAllSubmit.addClass("disabled");
+    btnCheckAllSubmit.attr("disabled",true); } }
+</script>

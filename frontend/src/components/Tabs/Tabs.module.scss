@@ -1,0 +1,76 @@
+ 
+/* Tab Container */
+.tabs {
+  height: auto;
+  min-height: 400px;
+  margin: 0.5rem 0;
+  color: var(--title-color);
+  font-weight: 600;
+  font-size: 1.6rem;
+  @media (max-width: 769px) {
+    padding: 2rem 0;
+  }
+ 
+}
+ 
+/* Tab Navigation */
+ul.nav {
+  // margin: 0 auto 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0px 20px;
+  @media (max-width: 768px) {
+      width: 90%;
+  }
+}
+
+ul.nav li {
+  min-width: 12rem;
+  padding: 1rem;
+  list-style: none;
+  text-align: center;
+  font-size: 1.6rem !important;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+
+ul.nav li:hover {
+  background: rgba(50, 224, 196, 0.15);
+}
+
+ul.nav li.active {
+  background-color: transparent;
+  opacity: 1;
+}
+
+ul.nav .line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 6px;
+  border-radius: 15px;
+  background-color: var(--primary);
+  transition: all 0.2s ease;
+}
+
+ul.nav .base-line{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  border-radius: 15px;
+  background-color: var(--text-color);
+  opacity: 0.2;
+  // transition: all 0.2s ease;
+}
+
+/* Tab Content Styles */
+.TabContent {
+  // font-size: 2rem;
+  margin: 0px 20px;
+  text-align: center;
+}

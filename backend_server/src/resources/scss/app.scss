@@ -1,0 +1,22 @@
+@import "variables";
+
+.card-person-item {
+    margin-top: 16px;
+}
+.avatar {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+.user-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-left: 4px;
+}
+
+.select-action {
+    margin: 0px 8px;
+}

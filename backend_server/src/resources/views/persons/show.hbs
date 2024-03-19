@@ -1,0 +1,24 @@
+<div class="mt-4">
+    <div class="row">
+        {{#with person}}
+            <div class="col-lg-3">
+                <h3 style="text-align: center;">Profile</h3>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img
+                            src="https://scontent.fsgn4-1.fna.fbcdn.net/v/t39.30808-1/323440837_563883925291552_7766210441308944045_n.jpg?stp=dst-jpg_p320x320&_nc_cat=101&ccb=1-7&_nc_sid=c6021c&_nc_ohc=2lhKyVKlxvAAX9iFH8S&_nc_ht=scontent.fsgn4-1.fna&oh=00_AfDpvPBmwib-3wkr9ZShsVMBTluObP7kbgMtrTr_nkI7YA&oe=63D4F292"
+                            class="avatar"
+                            alt="..."
+                        />
+                    </div>
+                    <div class="col-lg-9">
+                        <h2>{{this.name}}</h2>
+                        <p>{{this.job}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/with}}
+    </div>
+</div>

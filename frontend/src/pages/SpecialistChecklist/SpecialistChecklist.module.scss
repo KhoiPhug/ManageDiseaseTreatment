@@ -1,0 +1,202 @@
+.wrapper {
+    --text-size: 1.8rem;
+    padding: 20px;
+}
+
+.header-title {
+    color: var(--primary);
+}
+
+.body {
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
+.text-result {
+    font-size: var(--text-size);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+
+    .search-input {
+        flex: 1;
+        height: 100%;
+        width: 350px;
+        color: var(--primary);
+        padding: 0 0 0 10px;
+        font-size: var(--text-size);
+        font-weight: 600;
+        caret-color: var(--primary);
+        background-color: transparent;
+        font-family: var(--font-family);
+        border: 0px;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    .search-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--search-button-width);
+        height: 100%;
+        font-size: 1.8rem;
+        color: var(--primary);
+    }
+}
+
+.btn-group {
+    .btn-add {
+        font-size: 1.8rem;
+    }
+}
+
+.column-thead {
+    font-size: var(--text-size);
+    color: var(--primary) !important;
+    background-color: var(--background-color) !important;
+}
+
+.column {
+    font-size: var(--text-size);
+    font-weight: 600;
+    color: var(--text-color);
+    border-top: 5px solid white !important;
+    border-bottom: 5px solid white !important;
+    background-color: var(--background-color);
+}
+
+.btn-delete {
+    margin: 0px 6px;
+    padding: 8px;
+    border: 1px solid transparent;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform linear 0.1s;
+
+    &:hover {
+        cursor: pointer;
+        border: 1px solid var(--primary);
+        transform: scale(1.2);
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+    }
+}
+
+.actionBtns {
+    max-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &.spec-form {
+        justify-content: flex-end;
+    }
+}
+
+.dialog {
+    // background-color: var(--primary);
+    // height: 1000px;
+    label {
+        color: var(--primary);
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    input,
+    textarea,
+    span {
+        font-size: 1.6rem !important;
+    }
+}
+
+.detail-dialog-header {
+    background-color: var(--background-color) !important;
+    color: var(--primary) !important;
+    font-size: 1.4rem;
+}
+
+.label-input {
+    color: var(--primary);
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+li {
+    font-size: 1.4rem !important;
+}
+
+.input-room-group {
+    display: flex;
+    .dialog-dropdown {
+        flex: 1;
+        margin-right: 20px;
+        justify-content: center;
+    }
+}
+
+//
+.dialog-table-rooms {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+
+    th {
+        div {
+            display: flex;
+            justify-content: center;
+            line-height: 36px;
+        }
+    }
+    td {
+        text-align: center !important;
+        font-size: 1.4rem !important;
+    }
+
+    .data-table-thead {
+        border-width: 0px !important;
+        background-color: #bfe6f4 !important;
+        padding-left: 4rem !important;
+        padding-right: 4rem !important;
+    }
+
+    .data-table-td {
+        border-width: 0px !important;
+        background-color: transparent !important;
+        padding-left: 4rem !important;
+        padding-right: 4rem !important;
+    }
+
+    .data-table {
+        div {
+            border-radius: 10px;
+        }
+        tbody {
+            tr:nth-child(odd) {
+                background-color: var(--background-color) !important;
+            }
+            tr:nth-child(even) {
+                background-color: #bfe6f4 !important;
+            }
+        }
+    }
+}

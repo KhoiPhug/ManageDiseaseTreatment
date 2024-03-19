@@ -1,0 +1,53 @@
+{
+    "name": "backend_server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "scripts": {
+        "beautiful": "lint-staged",
+        "start": "nodemon src/index.js",
+        "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/HeroDang/nodejs_blog.git"
+    },
+    "keywords": [
+        "nodejs",
+        "bankend",
+        "js"
+    ],
+    "author": "herodang",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/HeroDang/nodejs_blog/issues"
+    },
+    "homepage": "https://github.com/HeroDang/nodejs_blog#readme",
+    "lint-staged": {
+        "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "express-handlebars": "^6.0.6",
+        "jquery": "^3.6.3",
+        "method-override": "^3.0.0",
+        "mongoose": "^6.8.4",
+        "mongoose-delete": "^0.5.4",
+        "mongoose-sequence": "^5.3.1"
+    },
+    "devDependencies": {
+        "husky": "^8.0.3",
+        "lint-staged": "^13.1.0",
+        "morgan": "^1.10.0",
+        "node-sass": "^8.0.0",
+        "nodemon": "^2.0.20",
+        "prettier": "^2.8.3"
+    }
+}
