@@ -6,7 +6,7 @@
       View my   
       </b>
     </a>
-    <a href="[https://drive.google.com/drive/folders/1QGXHFIgCfnKbS2tDetRDHrNg5VEUXwoa]">
+    <a href="https://drive.google.com/drive/folders/1QGXHFIgCfnKbS2tDetRDHrNg5VEUXwoa">
        document
     </a>
   </div>
